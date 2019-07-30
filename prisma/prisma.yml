@@ -1,0 +1,2 @@
+endpoint: ${env:GRAPHQL_HOST}:${env:GRAPHQL_PORT}
+datamodel: datamodel.graphql

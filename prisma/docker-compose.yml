@@ -1,0 +1,22 @@
+version: '3'
+services:
+  prisma:
+    image: prismagraphql/prisma:1.12
+    restart: always
+    ports:
+    - "${GRAPHQL_PORT}:${GRAPHQL_PORT}"
+    environment:
+      PRISMA_CONFIG: |
+        port: ${GRAPHQL_PORT}
+        # uncomment the next line and provide the env var PRISMA_MANAGEMENT_API_SECRET=my-secret to activate cluster security
+        # managementApiSecret: my-secret
+        databases:
+          default:
+            connector: postgres
+            host: ${DB_HOST}
+            port: ${DB_PORT}
+            database: ${DB_NAME}
+            ssl: true
+            user: ${DB_USER}
+            password: ${DB_PWD}
+            migrations: true
