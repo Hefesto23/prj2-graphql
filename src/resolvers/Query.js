@@ -1,23 +1,33 @@
 const Query = {
-    users(parent, args, { db }, info) {
-        if (!args.query) {
-            return db.users
+    /*
+    1 parent -> The previous object, which for a field on the root Query type is often not used.
+    2 args -> The arguments provided to the field in the GraphQL query.
+    3 context -> A value which is provided to every resolver and holds important contextual 
+    information like the currently logged in user, or access to a database.
+    4 info -> A value which holds field-specific information relevant to the current query as 
+    well as the schema details, also refer to type GraphQLResolveInfo for more details.
+    */
+    users( parent, args, { prisma }, info ) {
+        //arguments to filter
+        const filtArgs = {};
+
+        if (args.query) {
+            filtArgs.where = {
+                OR: [
+                {
+                    name_contains: args.query
+                },
+                {
+                    email_contains: args.query
+                }
+            ]
+            } 
         }
 
-        return db.users.filter((user) => {
-            return user.name.toLowerCase().includes(args.query.toLowerCase())
-        })
+        return prisma.query.users(filtArgs, info)
     },
-    posts(parent, args, { db }, info) {
-        if (!args.query) {
-            return db.posts
-        }
-
-        return db.posts.filter((post) => {
-            const isTitleMatch = post.title.toLowerCase().includes(args.query.toLowerCase())
-            const isBodyMatch = post.body.toLowerCase().includes(args.query.toLowerCase())
-            return isTitleMatch || isBodyMatch
-        })
+    posts(parent, args, { prisma }, info) {
+        return prisma.query.posts(null,info)
     },
     comments(parent, args, { db }, info) {
         return db.comments

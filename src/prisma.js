@@ -8,8 +8,4 @@ const prisma = new Prisma({
     endpoint: `${process.env.GRAPHQL_HOST}:${process.env.GRAPHQL_PORT}`,
 })
 
-prisma.query.users(null, '{ id name email }').then((data) => {
-    console.log(data);
-})
-
 export { prisma as default }
