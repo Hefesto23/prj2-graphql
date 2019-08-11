@@ -9,10 +9,10 @@ const Query = {
     */
     users( parent, args, { prisma }, info ) {
         //arguments to filter
-        const filtArgs = {};
+        const userFiltArgs = {};
 
         if (args.query) {
-            filtArgs.where = {
+            userFiltArgs.where = {
                 OR: [
                 {
                     name_contains: args.query
@@ -24,13 +24,28 @@ const Query = {
             } 
         }
 
-        return prisma.query.users(filtArgs, info)
+        return prisma.query.users(userFiltArgs, info)
     },
     posts(parent, args, { prisma }, info) {
-        return prisma.query.posts(null,info)
+        const postFiltArgs = {};
+
+        if(args.query){
+            postFiltArgs.where = {
+                OR: [
+                    {
+                        title_contains: args.query
+                    },
+                    {
+                        body_contains: args.query
+                    }
+                ]
+            }
+        }
+
+        return prisma.query.posts(postFiltArgs, info)
     },
-    comments(parent, args, { db }, info) {
-        return db.comments
+    comments(parent, args, { prisma }, info) {
+        return prisma.query.comments(null,info)
     },
     me() {
         return {
