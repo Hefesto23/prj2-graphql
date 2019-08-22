@@ -1,3 +1,5 @@
+import getUserId from '../utils/get-user-id'
+
 const Query = {
     /*
     1 parent -> The previous object, which for a field on the root Query type is often not used.
@@ -26,7 +28,7 @@ const Query = {
 
         return prisma.query.users(userFiltArgs, info)
     },
-    posts(parent, args, { prisma }, info) {
+    posts(parent, args, { prisma, request }, info) {
         const postFiltArgs = {};
 
         if(args.query){
@@ -46,6 +48,40 @@ const Query = {
     },
     comments(parent, args, { prisma }, info) {
         return prisma.query.comments(null,info)
+    },
+    postsFromUser(parent, args, { prisma, request }, info) {
+        const userId = getUserId(request)
+        //Arguments
+        let postFiltArgs = {
+            where: {
+                author: {
+                    id: userId
+                }
+            }
+        }
+
+        if(args.id) {
+            postFiltArgs = {
+                where: {
+                    id: args.id,
+                    author: {
+                        id: userId
+                    }
+                }
+            }
+        }
+
+        return prisma.query.posts(postFiltArgs, info)
+    },
+    me(parent, args, { prisma, request }, info) {
+        const userId = getUserId(request)
+        const meFiltArgs = {
+            where: {
+                id: userId
+            }
+        };
+        
+        return prisma.query.user(meFiltArgs,info)
     }
 }
 
