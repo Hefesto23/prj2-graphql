@@ -6,6 +6,8 @@
   "scripts": {
     "start": "nodemon src/main.js --ext js,graphql --exec babel-node",
     "get-schema": "graphql get-schema -p prisma",
+    "lint": "./node_modules/.bin/eslint .",
+    "lint-fix": "./node_modules/.bin/eslint . --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -22,6 +24,12 @@
     "prisma-binding": "2.3.15"
   },
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.0",
+    "nodemon": "^1.19.1",
+    "prettier": "1.18.2"
   }
 }

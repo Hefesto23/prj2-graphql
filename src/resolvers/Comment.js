@@ -1,3 +1,3 @@
-const Comment = {}
+const Comment = {};
 
-export { Comment as default }
+export { Comment as default };
