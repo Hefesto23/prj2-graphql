@@ -2,13 +2,32 @@ import getUserId from "../utils/get-user-id";
 
 const User = {
   // locking one specific field
-  email(parent, args, { request }) {
-    const userId = getUserId(request, false);
-
-    if (userId && userId === parent.id) {
-      return parent.email;
+  posts: {
+    fragment: "fragment userId on User { id }",
+    resolve(parent, args, { prisma, request }) {
+      const userId = getUserId(request, false);
+      if (userId && userId === parent.id) {
+        return prisma.query.posts({
+          where: {
+            author: {
+              id: parent.id
+            }
+          }
+        });
+      }
+      return [];
     }
-    return null;
+  },
+  email: {
+    fragment: "fragment userId on User { id }",
+    resolve(parent, args, { request }) {
+      const userId = getUserId(request, false);
+
+      if (userId && userId === parent.id) {
+        return parent.email;
+      }
+      return null;
+    }
   }
 };
 

@@ -1,12 +1,14 @@
 import { config } from "dotenv";
 import { Prisma } from "prisma-binding";
+import { fragReplacements } from "./resolvers/Index";
 
 config();
 
 const prisma = new Prisma({
   typeDefs: "src/generated/prisma.graphql",
   endpoint: `${process.env.GRAPHQL_HOST}:${process.env.GRAPHQL_PORT}`,
-  secret: `${process.env.PRISMA_TOKEN}`
+  secret: `${process.env.PRISMA_TOKEN}`,
+  fragReplacements
 });
 
 export { prisma as default };
