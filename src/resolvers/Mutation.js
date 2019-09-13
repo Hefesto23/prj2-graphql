@@ -1,6 +1,5 @@
 import bcrypt from "bcryptjs";
-import getUserId from "../utils/get-user-id";
-import genToken from "../utils/gen-token";
+import utils from "../utils/utils";
 
 const Mutation = {
   async createUser(parent, args, { prisma }) {
@@ -10,11 +9,7 @@ const Mutation = {
       throw new Error("Email taken");
     }
 
-    if (args.data.password.length < 8) {
-      throw new Error("Password must be at least 8 characters long!");
-    }
-
-    const password = await bcrypt.hash(args.data.password, 10);
+    const password = await utils.hashPwd(args.data.password);
 
     const user = await prisma.mutation.createUser({
       data: {
@@ -25,7 +20,7 @@ const Mutation = {
 
     return {
       user,
-      token: genToken(user.id)
+      token: utils.genToken(user.id)
     };
   },
   async login(parent, args, { prisma }) {
@@ -47,11 +42,11 @@ const Mutation = {
 
     return {
       user,
-      token: genToken(user.id)
+      token: utils.genToken(user.id)
     };
   },
   async deleteUser(parent, args, { prisma, request }, info) {
-    const userId = getUserId(request);
+    const userId = utils.getUserId(request);
     return prisma.mutation.deleteUser(
       {
         where: {
@@ -61,8 +56,14 @@ const Mutation = {
       info
     );
   },
-  updateUser(parent, args, { prisma, request }, info) {
-    const userId = getUserId(request);
+  async updateUser(parent, args, { prisma, request }, info) {
+    const userId = utils.getUserId(request);
+
+    if (typeof args.data.password === "string") {
+      // eslint-disable-next-line no-param-reassign
+      args.data.password = await utils.hashPwd(args.data.password);
+    }
+
     return prisma.mutation.updateUser(
       {
         where: {
@@ -74,7 +75,7 @@ const Mutation = {
     );
   },
   createPost(parent, args, { prisma, request }, info) {
-    const userId = getUserId(request);
+    const userId = utils.getUserId(request);
     return prisma.mutation.createPost(
       {
         data: {
@@ -92,7 +93,7 @@ const Mutation = {
     );
   },
   async deletePost(parent, args, { prisma, request }, info) {
-    const userId = getUserId(request);
+    const userId = utils.getUserId(request);
     const checkUserPost = await prisma.exists.Post({
       id: args.id,
       author: {
@@ -114,7 +115,7 @@ const Mutation = {
     );
   },
   async updatePost(parent, args, { prisma, request }, info) {
-    const userId = getUserId(request);
+    const userId = utils.getUserId(request);
     const checkUserPost = await prisma.exists.Post({
       id: args.id,
       author: {
@@ -137,7 +138,7 @@ const Mutation = {
     );
   },
   createComment(parent, args, { prisma, request }, info) {
-    const userId = getUserId(request);
+    const userId = utils.getUserId(request);
 
     return prisma.mutation.createComment(
       {
@@ -159,7 +160,7 @@ const Mutation = {
     );
   },
   async deleteComment(parent, args, { prisma, request }, info) {
-    const userId = getUserId(request);
+    const userId = utils.getUserId(request);
     const checkUserComment = await prisma.exists.Comment({
       id: args.id,
       author: {
@@ -181,7 +182,7 @@ const Mutation = {
     );
   },
   async updateComment(parent, args, { prisma, request }, info) {
-    const userId = getUserId(request);
+    const userId = utils.getUserId(request);
     const checkUserComment = await prisma.exists.Comment({
       id: args.id,
       author: {

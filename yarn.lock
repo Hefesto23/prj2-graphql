@@ -336,16 +336,16 @@ apollo-codegen@^0.20.2:
     source-map-support "^0.5.0"
     yargs "^10.0.3"
 
-apollo-link-error@1.1.11:
-  version "1.1.11"
-  resolved "https://registry.yarnpkg.com/apollo-link-error/-/apollo-link-error-1.1.11.tgz#7cd363179616fb90da7866cee85cb00ee45d2f3b"
-  integrity sha512-442DNqn3CNRikDaenMMkoDmCRmkoUx/XyUMlRTZBEFdTw3FYPQLsmDO3hzzC4doY5/BHcn9/jdYh9EeLx4HPsA==
+apollo-link-error@1.1.12:
+  version "1.1.12"
+  resolved "https://registry.yarnpkg.com/apollo-link-error/-/apollo-link-error-1.1.12.tgz#e24487bb3c30af0654047611cda87038afbacbf9"
+  integrity sha512-psNmHyuy3valGikt/XHJfe0pKJnRX19tLLs6P6EHRxg+6q6JMXNVLYPaQBkL0FkwdTCB0cbFJAGRYCBviG8TDA==
   dependencies:
-    apollo-link "^1.2.12"
-    apollo-link-http-common "^0.2.14"
+    apollo-link "^1.2.13"
+    apollo-link-http-common "^0.2.15"
     tslib "^1.9.3"
 
-apollo-link-http-common@^0.2.14:
+apollo-link-http-common@^0.2.15:
   version "0.2.15"
   resolved "https://registry.yarnpkg.com/apollo-link-http-common/-/apollo-link-http-common-0.2.15.tgz#304e67705122bf69a9abaded4351b10bc5efd6d9"
   integrity sha512-+Heey4S2IPsPyTf8Ag3PugUupASJMW894iVps6hXbvwtg1aHSNMXUYO5VG7iRHkPzqpuzT4HMBanCTXPjtGzxg==
@@ -354,25 +354,15 @@ apollo-link-http-common@^0.2.14:
     ts-invariant "^0.4.0"
     tslib "^1.9.3"
 
-apollo-link-ws@1.0.18:
-  version "1.0.18"
-  resolved "https://registry.yarnpkg.com/apollo-link-ws/-/apollo-link-ws-1.0.18.tgz#281b9b0826d5fc7e2aa14d2784c5193d8b761112"
-  integrity sha512-nrWh9m7k1FQw1AK1GB1VTJS0o01cpsP2RYmTAh2j+P4lL2/72WgsblhbuF+yA1/jsgVrzg6xa+TNw3UwgGp3+g==
+apollo-link-ws@1.0.19:
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/apollo-link-ws/-/apollo-link-ws-1.0.19.tgz#dfa871d4df883a8777c9556c872fc892e103daa5"
+  integrity sha512-mRXmeUkc55ixOdYRtfq5rq3o9sboKghKABKroDVhJnkdS56zthBEWMAD+phajujOUbqByxjok0te8ABqByBdeQ==
   dependencies:
-    apollo-link "^1.2.12"
+    apollo-link "^1.2.13"
     tslib "^1.9.3"
 
-apollo-link@1.2.12:
-  version "1.2.12"
-  resolved "https://registry.yarnpkg.com/apollo-link/-/apollo-link-1.2.12.tgz#014b514fba95f1945c38ad4c216f31bcfee68429"
-  integrity sha512-fsgIAXPKThyMVEMWQsUN22AoQI+J/pVXcjRGAShtk97h7D8O+SPskFinCGEkxPeQpE83uKaqafB2IyWdjN+J3Q==
-  dependencies:
-    apollo-utilities "^1.3.0"
-    ts-invariant "^0.4.0"
-    tslib "^1.9.3"
-    zen-observable-ts "^0.8.19"
-
-apollo-link@^1.2.12, apollo-link@^1.2.13, apollo-link@^1.2.3:
+apollo-link@1.2.13, apollo-link@^1.2.13, apollo-link@^1.2.3:
   version "1.2.13"
   resolved "https://registry.yarnpkg.com/apollo-link/-/apollo-link-1.2.13.tgz#dff00fbf19dfcd90fddbc14b6a3f9a771acac6c4"
   integrity sha512-+iBMcYeevMm1JpYgwDEIDt/y0BB7VWyvlm/7x+TIPNLHCTCMgcEgDuW5kH86iQZWo0I7mNwQiTOz+/3ShPFmBw==
@@ -568,7 +558,7 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
   integrity sha512-ReZxvNHIOv88FlT7rxcXIIC0fPt4KZqZbOlivyWtXLt8ESx84zd3kMC6iK5jVeS2qt+g7ftS7ye4fi06X5rtRQ==
 
-babel-cli@6.26.0:
+babel-cli@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-cli/-/babel-cli-6.26.0.tgz#502ab54874d7db88ad00b887a06383ce03d002f1"
   integrity sha1-UCq1SHTX24itALiHoGODzgPQAvE=
@@ -1025,7 +1015,7 @@ babel-polyfill@^6.26.0:
     core-js "^2.5.0"
     regenerator-runtime "^0.10.5"
 
-babel-preset-env@1.7.0:
+babel-preset-env@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/babel-preset-env/-/babel-preset-env-1.7.0.tgz#dea79fa4ebeb883cd35dab07e260c1c9c04df77a"
   integrity sha512-9OR2afuKDneX2/q2EurSftUYM0xGu4O2D9adAhVfADDhrYDaxXV0rBbevVYoY9n6nyX1PmQW/0jtpJvUNr9CHg==
@@ -2859,10 +2849,10 @@ graphql-cli-prepare@1.4.19:
     graphql-static-binding "0.9.3"
     lodash "4.17.5"
 
-graphql-cli@3.0.12:
-  version "3.0.12"
-  resolved "https://registry.yarnpkg.com/graphql-cli/-/graphql-cli-3.0.12.tgz#c387b49f420410798db6d2739187d2af609e5fea"
-  integrity sha512-+6MxnbXHaAcpF574KTmpkXJmwXQmtP8YVaTY3IKBgqHzL5PMmTrrFgbLUbwDVJDZ5sSr/kMZgZFMiAczMYtykw==
+graphql-cli@^3.0.12:
+  version "3.0.14"
+  resolved "https://registry.yarnpkg.com/graphql-cli/-/graphql-cli-3.0.14.tgz#db6bc0c80dde47c64584417e212bda7cdf6c9daf"
+  integrity sha512-YNLHnZsePE2rJycM4E79sE4dx9G1S3rRbKdSbQEFEjOr1wHMEVzvZ3mL4Er6yqIYNWNC95HpQjxfCbjBBxRyng==
   dependencies:
     apollo-codegen "^0.20.2"
     chalk "^2.4.1"
@@ -2890,7 +2880,7 @@ graphql-cli@3.0.12:
     npm-run "4.1.2"
     opn "^5.4.0"
     ora "^3.0.0"
-    rimraf "2.6.3"
+    rimraf "2.7.1"
     source-map-support "^0.5.9"
     tmp-graphql-config-extension-openapi "^1.0.7"
     update-notifier "^2.5.0"
@@ -2951,12 +2941,12 @@ graphql-import@0.7.1, graphql-import@^0.7.0, graphql-import@^0.7.1:
     lodash "^4.17.4"
     resolve-from "^4.0.0"
 
-graphql-middleware@3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/graphql-middleware/-/graphql-middleware-3.0.2.tgz#c8cdb67615eec02aec237b455e679f5fc973ddc4"
-  integrity sha512-sRqu1sF+77z42z1OVM1QDHKQWnWY5K3nAgqWiZwx3U4tqNZprrDuXxSChPMliV343IrVkpYdejUYq9w24Ot3FA==
+graphql-middleware@4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/graphql-middleware/-/graphql-middleware-4.0.1.tgz#8c627b22cc046a47e9474a813cf9e0bd50fa0c4b"
+  integrity sha512-r9r+pcHV4yZW7LAOcjQYTbNY6nR9SrLgpVZKbrtgXxpQW/MUc1N8q3PESciebvp5s0EEUgRchcRjUkyaArCIFw==
   dependencies:
-    graphql-tools "^4.0.4"
+    graphql-tools "^4.0.5"
 
 graphql-playground-html@1.6.12:
   version "1.6.12"
@@ -3017,7 +3007,7 @@ graphql-subscriptions@^0.5.8:
   dependencies:
     iterall "^1.2.1"
 
-graphql-tools@4.0.5, graphql-tools@^4.0.0, graphql-tools@^4.0.4:
+graphql-tools@4.0.5, graphql-tools@^4.0.0, graphql-tools@^4.0.5:
   version "4.0.5"
   resolved "https://registry.yarnpkg.com/graphql-tools/-/graphql-tools-4.0.5.tgz#d2b41ee0a330bfef833e5cdae7e1f0b0d86b1754"
   integrity sha512-kQCh3IZsMqquDx7zfIGWBau42xe46gmqabwYkpPlCLIjcEY1XK+auP7iGRD9/205BPyoQdY8hT96MPpgERdC9Q==
@@ -3038,10 +3028,10 @@ graphql-upload@^8.0.0:
     http-errors "^1.7.2"
     object-path "^0.11.4"
 
-graphql-yoga@1.18.1:
-  version "1.18.1"
-  resolved "https://registry.yarnpkg.com/graphql-yoga/-/graphql-yoga-1.18.1.tgz#c9c5e303a4bc9a3fba98fb265b95a8a233eeb8a7"
-  integrity sha512-xNjOTMaE1ybFjB+t65Q/YISSD8sqBl5ny1bsXYBuNcEWNS5/sdUq1R9dm7BbgCD9yUiRYg3q6QiKAuLxdAhfuw==
+graphql-yoga@^1.18.1:
+  version "1.18.3"
+  resolved "https://registry.yarnpkg.com/graphql-yoga/-/graphql-yoga-1.18.3.tgz#047fa511dbef63cf6d6ea7c06a71202d37444844"
+  integrity sha512-tR6JYbwLSBVu0Z8M7BIyt1PHhhexmRwneYM8Ru/g2pixrtsWbelBFAXU7bDPhXrqZ49Zxt2zLJ60x3bLNGo/bQ==
   dependencies:
     "@types/aws-lambda" "8.10.13"
     "@types/cors" "^2.8.4"
@@ -3058,7 +3048,7 @@ graphql-yoga@1.18.1:
     graphql "^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0"
     graphql-deduplicator "^2.0.1"
     graphql-import "^0.7.0"
-    graphql-middleware "3.0.2"
+    graphql-middleware "4.0.1"
     graphql-playground-middleware-express "1.7.11"
     graphql-playground-middleware-lambda "1.7.12"
     graphql-subscriptions "^0.5.8"
@@ -4911,19 +4901,19 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@1.18.2:
+prettier@^1.18.2:
   version "1.18.2"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.18.2.tgz#6823e7c5900017b4bd3acf46fe9ac4b4d7bda9ea"
   integrity sha512-OeHeMc0JhFE9idD4ZdtNibzY0+TPHSpSSb9h8FqtP+YnoZZ1sl8Vc9b1sasjfymH3SonAF4QcA2+mzHPhMvIiw==
 
-prisma-binding@2.3.15:
-  version "2.3.15"
-  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-2.3.15.tgz#a64e2d00e765b2acdc14162aab6949e70561444e"
-  integrity sha512-FIY2vFG5HWEolzKK7fxPOfYPC1F+qnnsl2zUUlgmRNghqCvWI7AnxZqUSaUNQET5uqEZPn1bknKVtPOXpq7Khg==
+prisma-binding@^2.3.15:
+  version "2.3.16"
+  resolved "https://registry.yarnpkg.com/prisma-binding/-/prisma-binding-2.3.16.tgz#c798d48e3220d2949e0e380ad4fe838f78c1c0e2"
+  integrity sha512-ke8FOEdM9JQD4MsUPL7zwpck7cQjGtPJfqJknEA7HWXH1bvocyvWoBEVDB2I/GCu4tl4EVuJR+I4eAI9sFUOwg==
   dependencies:
-    apollo-link "1.2.12"
-    apollo-link-error "1.1.11"
-    apollo-link-ws "1.0.18"
+    apollo-link "1.2.13"
+    apollo-link-error "1.1.12"
+    apollo-link-ws "1.0.19"
     cross-fetch "3.0.4"
     graphql "^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0"
     graphql-binding "2.5.2"
@@ -5339,7 +5329,7 @@ rimraf@2.6.3:
   dependencies:
     glob "^7.1.3"
 
-rimraf@^2.6.1, rimraf@^2.6.2, rimraf@^2.6.3:
+rimraf@2.7.1, rimraf@^2.6.1, rimraf@^2.6.2, rimraf@^2.6.3:
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.7.1.tgz#35797f13a7fdadc566142c29d4f07ccad483e3ec"
   integrity sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==
@@ -6398,7 +6388,7 @@ z-schema@^3.18.2:
   optionalDependencies:
     commander "^2.7.1"
 
-zen-observable-ts@^0.8.19, zen-observable-ts@^0.8.20:
+zen-observable-ts@^0.8.20:
   version "0.8.20"
   resolved "https://registry.yarnpkg.com/zen-observable-ts/-/zen-observable-ts-0.8.20.tgz#44091e335d3fcbc97f6497e63e7f57d5b516b163"
   integrity sha512-2rkjiPALhOtRaDX6pWyNqK1fnP5KkJJybYebopNSn6wDG1lxBoFs2+nwwXKoA6glHIrtwrfBBy6da0stkKtTAA==
