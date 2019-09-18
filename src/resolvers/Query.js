@@ -11,7 +11,12 @@ const Query = {
     */
   users(parent, args, { prisma }, info) {
     // arguments to filter
-    const userFiltArgs = {};
+    const userFiltArgs = {
+      first: args.first,
+      skip: args.skip,
+      after: args.after,
+      orderBy: args.orderBy
+    };
 
     if (args.query) {
       userFiltArgs.where = {
@@ -26,7 +31,12 @@ const Query = {
     return prisma.query.users(userFiltArgs, info);
   },
   posts(parent, args, { prisma }, info) {
-    const postFiltArgs = {};
+    const postFiltArgs = {
+      first: args.first,
+      skip: args.skip,
+      after: args.after,
+      orderBy: args.orderBy
+    };
 
     if (args.query) {
       postFiltArgs.where = {
@@ -44,7 +54,14 @@ const Query = {
     return prisma.query.posts(postFiltArgs, info);
   },
   comments(parent, args, { prisma }, info) {
-    return prisma.query.comments(null, info);
+    const commentsFiltArgs = {
+      first: args.first,
+      skip: args.skip,
+      after: args.after,
+      orderBy: args.orderBy
+    };
+
+    return prisma.query.comments(commentsFiltArgs, info);
   },
   postsFromUser(parent, args, { prisma, request }, info) {
     const userId = getUserId(request);
