@@ -1,5 +1,7 @@
 /node_modules
 .vscode/
+config/
+dist/
 logs/
 .env
 */.env

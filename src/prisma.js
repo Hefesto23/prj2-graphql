@@ -6,8 +6,8 @@ config();
 
 const prisma = new Prisma({
   typeDefs: "src/generated/prisma.graphql",
-  endpoint: `${process.env.GRAPHQL_HOST}:${process.env.GRAPHQL_PORT}`,
-  secret: `${process.env.PRISMA_TOKEN}`,
+  endpoint: process.env.GRAPHQL_HOST,
+  secret: process.env.PRISMA_TOKEN,
   fragReplacements
 });
 
