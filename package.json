@@ -10,15 +10,20 @@
     "get-schema": "graphql get-schema -p prisma --dotenv ./config/prod.env",
     "lint": "./node_modules/.bin/eslint .",
     "lint-fix": "./node_modules/.bin/eslint . --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "env-cmd -f ./config/test.env jest --watch"
+  },
+  "jest": {
+    "globalSetup": "./tests_config/global-setup.js",
+    "globalTeardown": "./tests_config/global-teardown.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@babel/polyfill": "^7.6.0",
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/register": "^7.7.0",
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.0.0",
     "env-cmd": "^10.0.1",
@@ -33,6 +38,7 @@
     "eslint-config-prettier": "^6.2.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prettier": "^3.1.0",
+    "jest": "^24.9.0",
     "nodemon": "^1.19.1",
     "prettier": "^1.18.2"
   }
